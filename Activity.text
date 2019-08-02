@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+@import compass
+
+$red: rgba( 255, 118, 105, 1 )
+$blue: rgba( 105, 210, 255, 1 )
+  
+.vis-el
+  @include transition( background 0.3s ease-in-out )
+  position: relative
+  display: block
+  background-color: $red
+  height: 33vh
+    
+  &:before , &:after
+    @include transition( all 0.3s ease-in-out )
+    font-family: sans-serif
+    font-weight: 100
+    font-size: 3vh
+    color: white
+    position: absolute
+    left: 50%
+    top: 50%
+    
+  &:before
+    @include translate( -50% , -50% )
+    content: "not visible"
+    opacity: 1
+    
+  &:after
+    @include translate( -50% , 100% )
+    content: "visible"
+    opacity: 0
+    
+  &.is-visible
+    @include transition-delay( 0.3s )
+    background-color: $blue
+    
+    &:before , &:after
+      @include transition-delay( 0.3s )
+        
+    &:before
+      @include translate( -50% , -150% )
+      opacity: 0
+      
+    &:after
+      @include translate( -50% , -50% )
+      opacity: 1
+</style>
+</head>
+<body>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+<div class="vis-el"></div>
+</body>
